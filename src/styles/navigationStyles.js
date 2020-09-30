@@ -1,20 +1,29 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-export const HeaderNav = styled(motion.div)`
-  height: 50px;
-  width: 100%;
+export const Nav = styled(motion.div)`
   position: fixed;
-  top: 56px;
-  right: 0;
+  top: 0;
   left: 0;
-  z-index: 99;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: ${props => props.theme.green};
+  color: ${props => props.theme.background};
+  z-index: 100;
+  overflow: hidden;
+`
+
+export const NavHeader = styled.div`
+  top: 56px;
+  position: relative;
   @media (max-width: 600px) {
     top: 40px;
   }
+  }
 `
 
-export const Logo = styled.div`
+export const LogoNav = styled.div`
   display: flex;
   align-items: center;
   a {
@@ -28,9 +37,9 @@ export const Logo = styled.div`
       }
     }
     font-size: 1.1rem;
-    font-weight: normal;
+    font-weight: 500;
     text-transform: uppercase;
-    color: ${props => props.theme.green};
+    color: ${props => props.theme.text};
     @media (max-width: 600px) {
       font-size: 0.85rem;
     }
@@ -40,51 +49,7 @@ export const Logo = styled.div`
   }
 `
 
-export const Menu = styled.div`
-  display: flex;
-  align-items: center;
-  a {
-    text-decoration: none;
-    // text-transform: uppercase;
-    color: ${props => props.theme.text};
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0 25px;
-    &:last-child {
-      margin-right: 0px;
-    }
-    @media (max-width: 600px) {
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      margin: 0 10px;
-    }
-  }
-`
-export const AboutMenu = styled.div`
-  display: none;
-  a {
-    @media (max-width: 600px) {
-      display: none;
-    }
-  }
-`
-export const ProductsMenu = styled.div`
-  display: none;
-  a {
-    @media (max-width: 600px) {
-      display: none;
-    }
-  }
-`
-export const ContactMenu = styled.div`
-  display: none;
-  a {
-    @media (max-width: 600px) {
-      display: none;
-    }
-  }
-`
-export const HamburgerMenu = styled.div`
+export const CloseNav = styled.div`
   button {
     display: flex;
     flex-direction: column;
@@ -97,10 +62,6 @@ export const HamburgerMenu = styled.div`
     border-radius: 100px;
     background: ${props => props.theme.background};
     outline: none;
-    &:hover {
-      transition: 0.2s ease-in-out;
-      background: ${props => props.theme.grey};
-    }
     @media (max-width: 700px) {
       background: ${props => props.theme.grey};
       height: 50px;
@@ -115,7 +76,38 @@ export const HamburgerMenu = styled.div`
       margin: 1.5px;
       @media (max-width: 600px) {
         width: 24px;
+        //margin-bottom: 2px;
       }
     }
   }
 `
+
+export const NavList = styled(motion.div)`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    li {
+        list-style: none;
+        font-size: 3rem;
+        font-weight: 300;
+        height: 96px;
+        line-height: 96px;
+        overflow: hidden;
+        @media (max-width: 600px) {
+            font-size: 2rem;
+            height: 56px;
+            line-height: 56px;
+          }
+        .link {
+        color: ${props => props.theme.text};
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+`
+export const NavFooter = styled.div``

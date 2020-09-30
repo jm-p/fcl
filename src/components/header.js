@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import DropdownArrow from "../assets/svg/drop-down-arrow.svg"
-import FaholoBanner from "../assets/images/faholo-banner.png"
+import FaholoBanner from "../assets/images/faholo-icon.png"
 
 //styled components
 import {
@@ -16,12 +15,13 @@ import {
 } from "../styles/headerStyles"
 import { Container, Flex } from "../styles/globalStyles"
 
-const Header = () => {
+const transition = { duration: 1, ease: [0.6, 0.05, -0.01, 0.9] }
+const Header = ({ toggleMenu, setToggleMenu }) => {
   return (
     <HeaderNav
       animate={{ y: 0, opacity: 1 }}
       initial={{ y: -56, opacity: 0 }}
-      transition={{ duration: 2, ease: [0.6, 0.05, -0.01, 0.9] }}
+      transition={transition}
     >
       <Container>
         <Flex spaceBetween noHeight>
@@ -29,21 +29,23 @@ const Header = () => {
             <Link to="/">
               <img src={FaholoBanner} alt="" />
             </Link>
+            <Link to="/">
+              Faholo <br /> Chemicals Ltd
+            </Link>
           </Logo>
           <Menu>
             <AboutMenu>
-              <Link to="/">Our Story</Link>
+              <Link to="/">Products</Link>
             </AboutMenu>
             <ProductsMenu>
-              <Link to="/">
-                Products <img src={DropdownArrow} alt="" />
-              </Link>
+              <Link to="/">About</Link>
             </ProductsMenu>
             <ContactMenu>
               <Link to="/">Contacts</Link>
             </ContactMenu>
-            <HamburgerMenu>
+            <HamburgerMenu onClick={() => setToggleMenu(!toggleMenu)}>
               <button>
+                <span></span>
                 <span></span>
                 <span></span>
               </button>
